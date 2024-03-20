@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="Error_UNKNOWN">"An unknown error occurred. Please try again later."</string>
+    <string name="Error_Parsing">There was an error parsing the server response. Please try again later.</string>
+    <string name="Error_Internet">"No internet connection. Please check your network settings and try again."</string>
+    <string name="Error_404">"The requested resource was not found. Please try again later."</string>
+    <string name="next_7_days">Next 7 days</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="uv">UV</string>
+    <string name="e_wind">E Wind</string>
+    <string name="sunset">Sunset</string>
+    <string name="feels_like">Feels Like</string>
+    <string name="humidity">Humidity</string>
+</resources>
