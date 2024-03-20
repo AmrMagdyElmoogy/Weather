@@ -1,4 +1,4 @@
-package com.example.weather.features.sevenday
+package com.example.weather.features.sevenday.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -14,10 +14,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
+import com.example.weather.core.getMonthAndDay
+import com.example.weather.core.inTemperatureDegree
+import com.example.weather.core.parseToIcon
+import com.example.weather.features.sevenday.domin.SevenDaysWeather
 
 @Composable
 fun WeatherDayItem(
-    dayCondition: WeatherDay,
+    weather: SevenDaysWeather,
     modifier: Modifier = Modifier,
 ) {
     Row(
@@ -28,23 +32,29 @@ fun WeatherDayItem(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
-        Text(dayCondition.dayOfWeek, style = MaterialTheme.typography.bodyMedium)
+        Text(
+            weather.localtime.getMonthAndDay(),
+            style = MaterialTheme.typography.bodyMedium,
+            modifier = modifier.weight(1f),
+        )
 
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(8.dp),
+            modifier = modifier.weight(1f),
         ) {
             Image(
-                imageVector = ImageVector.vectorResource(dayCondition.weatherIcon),
+                imageVector = ImageVector.vectorResource(weather.condition.parseToIcon()),
                 contentDescription = null,
                 modifier = modifier.size(30.dp),
             )
-            Text(dayCondition.weatherDescription, style = MaterialTheme.typography.labelLarge)
+            Text(weather.condition, style = MaterialTheme.typography.labelLarge)
         }
 
         Text(
-            dayCondition.temperature,
+            weather.temperature.inTemperatureDegree(),
             style = MaterialTheme.typography.headlineLarge,
+            modifier = modifier.weight(1f),
         )
     }
 }

@@ -13,4 +13,5 @@ enum class NetworkError : ErrorHandling {
     JSON_NOT_PARSING,
     NO_INTERNET,
     NOT_FOUND_404,
+    EMPTY_RESULT,
 }

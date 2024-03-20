@@ -7,7 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.weather.core.ScreensDestinations
 import com.example.weather.features.home.presentation.HomeScreen
-import com.example.weather.features.sevenday.SevenDaysWeatherScreen
+import com.example.weather.features.sevenday.presentation.SevenDaysWeatherScreen
 
 @Composable
 fun AppNavigation(modifier: Modifier = Modifier) {

@@ -1,4 +1,4 @@
-package com.example.weather.features.home.presentation
+package com.example.weather.features.sevenday.presentation
 
 import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModel
@@ -6,8 +6,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.weather.R
 import com.example.weather.core.NetworkError
 import com.example.weather.core.ResultHandling
-import com.example.weather.features.home.domin.OneDayWeather
-import com.example.weather.features.home.domin.OneDayWeatherRepository
+import com.example.weather.features.sevenday.domin.SevenDaysWeather
+import com.example.weather.features.sevenday.domin.SevenDaysWeatherRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -16,26 +16,26 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel
+class SevenDaysViewModel
     @Inject
     constructor(
-        private val repo: OneDayWeatherRepository,
+        private val repo: SevenDaysWeatherRepository,
     ) : ViewModel() {
-        private var _uiState = MutableStateFlow(HomeUiState())
+        private var _uiState = MutableStateFlow(SevenDaysUiState())
         val uiState = _uiState.asStateFlow()
 
         @StringRes
         var errorMessage: Int = R.string.Error_404
             private set
 
-        fun getWeatherOf(city: String) {
+        init {
             viewModelScope.launch {
                 _uiState.update {
                     it.copy(
                         isLoading = true,
                     )
                 }
-                when (val result = repo.fetchOneDayWeather(city)) {
+                when (val result = repo.fetchSevenDays("Cairo")) {
                     is ResultHandling.Success -> {
                         val data = result.data
                         _uiState.update {
@@ -68,21 +68,9 @@ class HomeViewModel
         }
     }
 
-data class HomeUiState(
+data class SevenDaysUiState(
     val isLoading: Boolean = false,
     val isError: Boolean = false,
-    val weather: OneDayWeather =
-        OneDayWeather(
-            temperature = 25.5,
-            location = "New York",
-            region = "NY",
-            localtime = "2024-03-20 12:00 PM",
-            condition = "Sunny",
-            sunrise = "06:30 AM",
-            sunset = "07:00 PM",
-            windMph = 10.2,
-            humidity = 60,
-            feelsLike = 28.0,
-            uv = 7.5,
-        ),
+    val weather: List<SevenDaysWeather> =
+        emptyList(),
 )
