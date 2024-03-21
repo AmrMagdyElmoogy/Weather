@@ -4,6 +4,7 @@ plugins {
     id("com.google.devtools.ksp") version "1.9.21-1.0.15"
     id("com.google.dagger.hilt.android")
     id("androidx.navigation.safeargs.kotlin")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -76,6 +77,7 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.mockito)
     testImplementation(libs.mockk)
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test-jvm:1.7.1")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
