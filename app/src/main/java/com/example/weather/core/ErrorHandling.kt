@@ -15,3 +15,10 @@ enum class NetworkError : ErrorHandling {
     NOT_FOUND_404,
     EMPTY_RESULT,
 }
+
+enum class DatabaseError : ErrorHandling {
+    SQLiteException,
+    RoomDatabaseException,
+    IllegalArgumentException,
+    InvalidQueryException,
+}

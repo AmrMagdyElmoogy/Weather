@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.weather.R
 import com.example.weather.core.inTemperatureDegree
-import com.example.weather.features.home.domin.OneDayWeather
+import com.example.weather.features.home.domin.entities.OneDayWeather
 
 @Composable
 fun TodayWeatherSummary(

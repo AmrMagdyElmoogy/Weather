@@ -22,7 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.weather.R
 import com.example.weather.core.inTemperatureDegree
-import com.example.weather.features.home.domin.OneDayWeather
+import com.example.weather.features.home.domin.entities.OneDayWeather
 import com.example.weather.ui.theme.montserratFont
 
 @Composable
@@ -59,12 +59,12 @@ fun AdditionalWeatherInfo(
                 TodayWeatherSummary(
                     res = R.drawable.sunyy,
                     title = stringResource(R.string.uv),
-                    description = weather.uv.toString(),
+                    description = weather.uv,
                 )
                 TodayWeatherSummary(
                     res = R.drawable.windy,
                     title = stringResource(R.string.e_wind),
-                    description = weather.windMph.toString(),
+                    description = weather.windMph,
                 )
             }
             Column(
@@ -84,7 +84,7 @@ fun AdditionalWeatherInfo(
                 TodayWeatherSummary(
                     res = R.drawable.humidity,
                     title = stringResource(R.string.humidity),
-                    description = weather.humidity.toString(),
+                    description = weather.humidity,
                 )
             }
         }

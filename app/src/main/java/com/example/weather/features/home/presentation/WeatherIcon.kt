@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
-import com.example.weather.core.parseToIcon
+import com.example.weather.core.WeatherConditions
 
 @Composable
 fun WeatherIcon(
@@ -15,7 +15,7 @@ fun WeatherIcon(
     modifier: Modifier = Modifier,
 ) {
     Image(
-        imageVector = ImageVector.vectorResource(id = condition.parseToIcon()),
+        imageVector = ImageVector.vectorResource(id = WeatherConditions.parseToIcon(condition)),
         contentDescription = null,
         modifier = modifier.size(200.dp),
     )

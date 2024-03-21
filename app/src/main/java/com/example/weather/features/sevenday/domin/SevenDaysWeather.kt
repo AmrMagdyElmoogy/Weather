@@ -1,8 +1,8 @@
 package com.example.weather.features.sevenday.domin
 
 data class SevenDaysWeather(
-    val temperature: Double,
+    val temperature: String,
     val location: String,
-    val localtime: String,
+    val date: String,
     val condition: String,
 )

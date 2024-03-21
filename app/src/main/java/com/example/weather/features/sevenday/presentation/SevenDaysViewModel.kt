@@ -28,14 +28,14 @@ class SevenDaysViewModel
         var errorMessage: Int = R.string.Error_404
             private set
 
-        init {
+        fun init(city: String) {
             viewModelScope.launch {
                 _uiState.update {
                     it.copy(
                         isLoading = true,
                     )
                 }
-                when (val result = repo.fetchSevenDays("Cairo")) {
+                when (val result = repo.fetchSevenDays(city)) {
                     is ResultHandling.Success -> {
                         val data = result.data
                         _uiState.update {

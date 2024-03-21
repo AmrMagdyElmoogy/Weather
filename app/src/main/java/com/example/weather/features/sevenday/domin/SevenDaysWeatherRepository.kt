@@ -1,5 +1,6 @@
 package com.example.weather.features.sevenday.domin
 
+import android.util.Log
 import com.example.weather.core.NetworkError
 import com.example.weather.core.ResultHandling
 import com.example.weather.features.sevenday.data.api.SevenDayCityWeatherService
@@ -19,8 +20,8 @@ class SevenDaysWeatherRepository
                     val newResponse = mutableListOf<SevenDaysWeather>()
                     val oldResponse = result.body()
                     oldResponse?.let {
-                        it.forecast.forecastday.forEachIndexed { index, forecast ->
-                            newResponse.add(it.toSevenDaysEntity(index, forecast))
+                        it.data.weather.forEach { weather ->
+                            newResponse.add(weather.toSevenDaysEntity())
                         }
                     }
                     ResultHandling.Success(newResponse.toList())
@@ -31,6 +32,7 @@ class SevenDaysWeatherRepository
                 println(e.printStackTrace())
                 return ResultHandling.Failure(NetworkError.NO_INTERNET)
             } catch (e: Exception) {
+                Log.d("SevenDaysException", e.toString())
                 return ResultHandling.Failure(NetworkError.UNKNOWN)
             }
         }
