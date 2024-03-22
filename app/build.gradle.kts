@@ -31,6 +31,7 @@ android {
         }
 
         release {
+            buildConfigField("String", "API_KEY", providers.gradleProperty("API_KEY").get())
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
