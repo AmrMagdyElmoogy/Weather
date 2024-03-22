@@ -1,4 +1,4 @@
-package com.example.weather.features.sevenday.domin
+package com.example.weather.features.sevenday.domain
 
 import android.util.Log
 import com.example.weather.core.NetworkError

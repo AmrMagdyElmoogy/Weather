@@ -1,4 +1,4 @@
-package com.example.weather.features.sevenday.domin
+package com.example.weather.features.sevenday.domain
 
 data class SevenDaysWeather(
     val temperature: String,

@@ -16,6 +16,10 @@ moshi = "1.15.0"
 nav_version = "2.7.7"
 mockito_version = "3.11.2"
 mockk_version = "1.12.0"
+lottieVersion = "6.3.0"
+swipe_refresh = "0.27.0"
+junitKtx = "1.1.5"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -42,10 +46,12 @@ retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = 
 moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
 converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
 moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
-navigation_args= { group = "androidx.navigation", name = "navigation-safe-args-gradle-plugin", version.ref = "nav_version" }
-mockito = {group = "org.mockito", name = "mockito-core", version.ref = "mockito_version"}
-mockk = {group = "io.mockk", name = "mockk", version.ref = "mockk_version"}
-
+navigation_args = { group = "androidx.navigation", name = "navigation-safe-args-gradle-plugin", version.ref = "nav_version" }
+mockito = { group = "org.mockito", name = "mockito-core", version.ref = "mockito_version" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk_version" }
+lottie = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottieVersion" }
+swipe-refresh = {group = "com.google.accompanist", name = "accompanist-swiperefresh", version.ref = "swipe_refresh"}
+androidx-junit-ktx = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "junitKtx" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

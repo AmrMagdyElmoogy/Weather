@@ -9,12 +9,13 @@ import androidx.compose.ui.graphics.Color
 @Composable
 fun SevenDaysWeatherScreen(
     city: String,
+    onPressBackToHomeScreen: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Surface(
         modifier = modifier.fillMaxSize(),
         contentColor = Color.White,
     ) {
-        SevenDaysListWeather(city)
+        SevenDaysListWeather(city, onPressBackToHomeScreen = onPressBackToHomeScreen)
     }
 }

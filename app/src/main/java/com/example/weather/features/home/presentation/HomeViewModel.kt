@@ -30,23 +30,10 @@ class HomeViewModel
     ) : ViewModel() {
         private var _uiState = MutableStateFlow(HomeUiState())
         val uiState = _uiState.asStateFlow()
-
+        private var _refresh = MutableStateFlow(false)
+        val refresh = _refresh.asStateFlow()
         var query by mutableStateOf(TextFieldValue(text = ""))
             private set
-
-        val defaultWeather =
-            OneDayWeather(
-                temperature = "25.5",
-                location = "New York",
-                localtime = "2024-03-20 12:00 PM",
-                condition = "Sunny",
-                sunrise = "06:30 AM",
-                sunset = "07:00 PM",
-                windMph = "10.2",
-                humidity = "60",
-                feelsLike = "28.0",
-                uv = "7.5",
-            )
 
         init {
             viewModelScope.launch {
@@ -76,7 +63,7 @@ class HomeViewModel
                             _uiState.update { state ->
                                 state.copy(
                                     weather =
-                                        it ?: defaultWeather,
+                                        it ?: state.weather,
                                 )
                             }
                         }
@@ -88,6 +75,16 @@ class HomeViewModel
         @StringRes
         var errorMessage: Int = R.string.Error_404
             private set
+
+        fun resetRefreshIndicator() {
+            _refresh.value = true
+            getWeatherOfQuery()
+            _refresh.value = false
+        }
+
+        fun clearTextInput() {
+            query = TextFieldValue(text = "")
+        }
 
         fun getWeatherOfQuery() {
             viewModelScope.launch {

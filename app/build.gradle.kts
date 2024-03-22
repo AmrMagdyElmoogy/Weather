@@ -62,6 +62,16 @@ android {
 
 dependencies {
 
+    implementation(libs.androidx.junit.ktx)
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     val nav_version = "2.7.7"
 
@@ -75,7 +85,12 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.swipe.refresh)
+    implementation(libs.lottie)
+
     testImplementation(libs.junit)
+    testImplementation("com.google.dagger:hilt-android-testing:2.49")
+    testImplementation("org.robolectric:robolectric:4.7.3")
     testImplementation(libs.mockito)
     testImplementation(libs.mockk)
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test-jvm:1.7.1")

@@ -1,6 +1,6 @@
 package com.example.weather.features.sevenday.data.dto
 
-import com.example.weather.features.sevenday.domin.SevenDaysWeather
+import com.example.weather.features.sevenday.domain.SevenDaysWeather
 
 fun Weather.toSevenDaysEntity(): SevenDaysWeather {
     return SevenDaysWeather(

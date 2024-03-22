@@ -2,5 +2,10 @@ package com.example.weather.core
 
 enum class ScreensDestinations(val path: String) {
     HOME("/home"),
-    SEVENDAYSFORECAST("/moreForcasts/{args1}"),
+    MORE_FORECASTS("/moreForcasts/{args}"),
+    ;
+
+    fun withArgs(vararg args: String): String {
+        return path.format(*args)
+    }
 }

@@ -5,18 +5,22 @@ import com.example.weather.R
 object WeatherConditions {
     val nameToDrawableRes =
         hashMapOf(
-            "Sunny" to R.drawable.sunyy,
-            "Cloudy" to R.drawable.cloudy,
-            "Partly cloudy" to R.drawable.cloudy,
-            "Clear" to R.drawable.clear,
-            "Windy" to R.drawable.wind,
-            "Thunderstorm" to R.drawable.thunder,
-            "Snow" to R.drawable.snow,
+            "sunny" to R.drawable.sunyy,
+            "cloudy" to R.drawable.cloudy,
+            "partly cloudy" to R.drawable.cloudy,
+            "clear" to R.drawable.clear,
+            "windy" to R.drawable.wind,
+            "thunderstorm" to R.drawable.thunder,
+            "patchy rain nearby" to R.drawable.raining,
+            "rain" to R.drawable.rain,
+            "snow" to R.drawable.snow,
+            "fog" to R.drawable.fog,
         )
 
     fun parseToIcon(value: String): Int {
-        if (nameToDrawableRes.containsKey(value)) {
-            return nameToDrawableRes[value]!!
+        val valueLC = value.trim().lowercase()
+        if (nameToDrawableRes.containsKey(valueLC)) {
+            return nameToDrawableRes[valueLC]!!
         }
         return R.drawable.clear
     }

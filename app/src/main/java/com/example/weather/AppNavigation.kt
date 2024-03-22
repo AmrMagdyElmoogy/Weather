@@ -15,13 +15,15 @@ fun AppNavigation(modifier: Modifier = Modifier) {
     NavHost(navController = navController, startDestination = ScreensDestinations.HOME.path) {
         composable(ScreensDestinations.HOME.path) {
             HomeScreen {
-                navController.navigate("moreForcasts/$it")
+                navController.navigate(ScreensDestinations.MORE_FORECASTS.withArgs(it))
             }
         }
 
-        composable("moreForcasts/{args1}") {
+        composable(ScreensDestinations.MORE_FORECASTS.path) {
             val arg1 = it.arguments?.getString("args1") ?: "Cairo"
-            SevenDaysWeatherScreen(arg1)
+            SevenDaysWeatherScreen(arg1, onPressBackToHomeScreen = {
+                navController.popBackStack()
+            })
         }
     }
 }

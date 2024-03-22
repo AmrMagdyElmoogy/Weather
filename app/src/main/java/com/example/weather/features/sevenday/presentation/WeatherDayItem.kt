@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import com.example.weather.core.WeatherConditions
 import com.example.weather.core.getMonthAndDay
 import com.example.weather.core.inTemperatureDegree
-import com.example.weather.features.sevenday.domin.SevenDaysWeather
+import com.example.weather.features.sevenday.domain.SevenDaysWeather
 
 @Composable
 fun WeatherDayItem(

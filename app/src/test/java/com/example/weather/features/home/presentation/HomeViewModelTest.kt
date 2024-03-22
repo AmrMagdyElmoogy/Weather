@@ -30,7 +30,7 @@ class HomeViewModelTest {
     }
 
     @Test
-    fun `Test successful data retrieve`() {
+    fun `Test successful cached data retrieve`() {
         val repo = mockk<OneDayWeatherRepository>()
 
         val expectedWeather =
