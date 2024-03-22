@@ -20,7 +20,7 @@ fun AppNavigation(modifier: Modifier = Modifier) {
         }
 
         composable(ScreensDestinations.MORE_FORECASTS.path) {
-            val arg1 = it.arguments?.getString("args1") ?: "Cairo"
+            val arg1 = it.arguments?.getString("args1") ?: "your town"
             SevenDaysWeatherScreen(arg1, onPressBackToHomeScreen = {
                 navController.popBackStack()
             })
