@@ -5,7 +5,7 @@ enum class ScreensDestinations(val path: String) {
     MORE_FORECASTS("/moreForcasts/{args1}"),
     ;
 
-    fun withArgs(vararg args: String): String {
-        return path.format(*args)
+    fun withArg(arg: String): String {
+        return path.replace("{args1}", arg)
     }
 }

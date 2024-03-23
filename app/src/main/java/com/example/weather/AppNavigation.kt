@@ -15,7 +15,7 @@ fun AppNavigation(modifier: Modifier = Modifier) {
     NavHost(navController = navController, startDestination = ScreensDestinations.HOME.path) {
         composable(ScreensDestinations.HOME.path) {
             HomeScreen {
-                navController.navigate(ScreensDestinations.MORE_FORECASTS.withArgs(it))
+                navController.navigate(ScreensDestinations.MORE_FORECASTS.withArg(it))
             }
         }
 
